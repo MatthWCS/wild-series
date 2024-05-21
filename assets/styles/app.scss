@@ -1,3 +1,15 @@
+@font-face {
+    font-family: "Sketch_Handwriting";
+    src:url(../fonts/Sketch_Handwriting.woff) format("woff");
+}
+
+h1{
+    font-family: "Sketch_Handwriting";
+    font-size: 80px;
+    color: blue;
+    font-weight: bold;
+}
+
 body {
     background-color: skyblue;
 }
