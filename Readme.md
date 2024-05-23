@@ -28,20 +28,30 @@ symfony console doctrine:migrations:migrate
 
 #######################################################################################
 
-Command to detect entities
+Command to detect entities:
 
 symfony console doctrine:mapping:info
 
 #######################################################################################
 
-Command to validate entities
+Command to validate entities:
 
 symfony console doctrine:schema:validate
 
 #######################################################################################
 
-Command to control migrations
+Command to control migrations:
 
 symfony console doctrine:migrations:status
 
 #######################################################################################
+
+Command to insert fixtures in database:
+
+symfony console doctrine:fixtures:load
+
+#######################################################################################
+
+Command to insert fixtures in database and reset id:
+
+symfony console doctrine:fixtures:load --purge-with-truncate
