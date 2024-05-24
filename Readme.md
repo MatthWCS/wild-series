@@ -54,6 +54,21 @@ symfony console doctrine:fixtures:load
 
 Command to insert fixtures in database and reset id:
 
-symfony console doctrine:fixtures:load --purge-with-truncate
+symfony console doctrine:fixtures:load '--purge-with-truncate'
 
 doesn't work
+
+#######################################################################################
+
+Command to show 
+
+symfony console doctrine:query:sql "SELECT * FROM table_name"
+
+#######################################################################################
+
+symfony console doctrine:schema:drop --force
+
+symfony console doctrine:schema:update --force
+
+symfony console doctrine:fixtures:load -n
+
