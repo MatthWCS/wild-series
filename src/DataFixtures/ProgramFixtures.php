@@ -30,15 +30,15 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
                 'category' => 'category_Action',
             ],
             [
-                'title' => "Peaky Blinders",
-                'synopsis' => "Dans cette série historique réaliste, un jeune chef de la pègre se bat pour garder
-                 le pouvoir et échapper au policier qui essaie de le coincer.",
+                'title' => "Frontier",
+                'synopsis' => "Cette série dramatique d'époque créée par Rob et Peter Blackie met en vedette
+                 Jason Momoa et Landon Liboiron.",
                 'category' => 'category_Action',
             ],
             [
-                'title' => "Peaky Blinders",
-                'synopsis' => "Dans cette série historique réaliste, un jeune chef de la pègre se bat pour garder
-                 le pouvoir et échapper au policier qui essaie de le coincer.",
+                'title' => "Happy!",
+                'synopsis' => "Un ex-flic alcoolique devenu tueur croit perdre la tête quand une licorne animée qu'il
+                 est le seul à voir le pousse à sauver une fillette enlevée par le père Noël.",
                 'category' => 'category_Action',
             ],
             [
@@ -66,9 +66,10 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
                 'category' => 'category_Aventure',
             ],
             [
-                'title' => "The Witcher",
-                'synopsis' => "Véritable succès planétaire, ce récit épique sur fond de monstres, de magie et
-                 de destinée.",
+                'title' => "Gotham",
+                'synopsis' => "Tout le monde connaît le commissaire Gordon, qui a pu faire sa place malgré la
+                 corruption de Gotham City. GOTHAM est l'histoire originelle des pires brigands et des justiciers
+                  de DC Comics.",
                 'category' => 'category_Aventure',
             ],
             [
@@ -143,18 +144,18 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
                 'category' => 'category_Horreur',
             ],
             [
-                'title' => 'Walking Dead',
-                'synopsis' => 'Un groupe de survivants doit rester soudé face à une apocalypse zombie.',
+                'title' => '',
+                'synopsis' => '',
                 'category' => 'category_Horreur',
             ],
             [
-                'title' => 'Walking Dead',
-                'synopsis' => 'Un groupe de survivants doit rester soudé face à une apocalypse zombie.',
+                'title' => '',
+                'synopsis' => '',
                 'category' => 'category_Horreur',
             ],
             [
-                'title' => 'Walking Dead',
-                'synopsis' => 'Un groupe de survivants doit rester soudé face à une apocalypse zombie.',
+                'title' => '',
+                'synopsis' => '',
                 'category' => 'category_Horreur',
             ],
         ];
