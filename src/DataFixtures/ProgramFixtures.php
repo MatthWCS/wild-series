@@ -144,18 +144,26 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
                 'category' => 'category_Horreur',
             ],
             [
-                'title' => '',
-                'synopsis' => '',
+                'title' => 'The Haunting of Hill House',
+                'synopsis' => 'Durant l’été 1992, Hugh et Olivia Crain s’installent avec leurs cinq enfants
+                 dans le manoir de Hill House. Mais des événements paranormaux et des pertes ... ',
                 'category' => 'category_Horreur',
             ],
             [
-                'title' => '',
-                'synopsis' => '',
+                'title' => 'The Last Of Us',
+                'synopsis' => "Quand le monde tel que vous le connaissiez n'existe plus, quand la ligne entre le bien
+                 et le mal devient floue, quand la mort se manifeste au quotidien, jusqu'où iriez-vous pour survivre ?
+                  Pour Joel, la survie est une préoccupation quotidienne qu'il gère à sa manière. Mais quand son chemin
+                   croise celui d'Ellie, leur voyage à travers ce qui reste des États-Unis va mettre à rude épreuve
+                    leur humanité et leur volonté de survivre.",
                 'category' => 'category_Horreur',
             ],
             [
-                'title' => '',
-                'synopsis' => '',
+                'title' => 'The Originals',
+                'synopsis' => 'Le vampire originel Klaus fait son retour au Vieux Carré, un quartier français de la
+                 Nouvelle Orléans. Dans cette ville qu’il a aidé à construire quelques siècles plus tôt, il y retrouve
+                  son ancien protégé, le diabolique et charismatique Marcel. Dans l’espoir d’aider son jeune frère à
+                   trouver la rédemption, Elijah est contraint de s’allier avec des ennemis de Marcel...',
                 'category' => 'category_Horreur',
             ],
         ];
