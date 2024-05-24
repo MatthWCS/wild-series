@@ -11,33 +11,10 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
 {
     const PROGRAMS = [
             [
-                'title' => 'Walking Dead',
-                'synopsis' => 'Un groupe de survivants doit rester soudé face à une apocalypse zombie.',
-                'category' => 'category_Action',
-            ],
-            [
                 'title' => 'Barbares',
                 'synopsis' => "Et si Rome n'était pas invincible ? En l'an 9 après J.-C. en Germanie,
                  une armée avec à sa tête un ancien soldat romain décide de s'élever contre la puissance
                   de l'Empire.",
-                'category' => 'category_Action',
-            ],
-            [
-                'title' => "Perdus dans l'espace",
-                'synopsis' => "Espérant une vie meilleure, ils ont quitté la Terre... pour une série de calamités
-                 cosmiques, de créatures hostiles et de technologies extraterrestres perfides. Danger!",
-                'category' => 'category_Aventure',
-            ],
-            [
-                'title' => "Stranger Things",
-                'synopsis' => "Quand un jeune garçon disparaît, une petite ville découvre une affaire mystérieuse,
-                 des expériences secrètes, des forces surnaturelles terrifiantes... et une fillette.",
-                'category' => 'category_Horreur',
-            ],
-            [
-                'title' => "Peaky Blinders",
-                'synopsis' => "Dans cette série historique réaliste, un jeune chef de la pègre se bat pour garder
-                 le pouvoir et échapper au policier qui essaie de le coincer.",
                 'category' => 'category_Action',
             ],
             [
@@ -47,10 +24,138 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
                 'category' => 'category_Action',
             ],
             [
+                'title' => "Peaky Blinders",
+                'synopsis' => "Dans cette série historique réaliste, un jeune chef de la pègre se bat pour garder
+                 le pouvoir et échapper au policier qui essaie de le coincer.",
+                'category' => 'category_Action',
+            ],
+            [
+                'title' => "Peaky Blinders",
+                'synopsis' => "Dans cette série historique réaliste, un jeune chef de la pègre se bat pour garder
+                 le pouvoir et échapper au policier qui essaie de le coincer.",
+                'category' => 'category_Action',
+            ],
+            [
+                'title' => "Peaky Blinders",
+                'synopsis' => "Dans cette série historique réaliste, un jeune chef de la pègre se bat pour garder
+                 le pouvoir et échapper au policier qui essaie de le coincer.",
+                'category' => 'category_Action',
+            ],
+            [
+                'title' => "Perdus dans l'espace",
+                'synopsis' => "Espérant une vie meilleure, ils ont quitté la Terre... pour une série de calamités
+                 cosmiques, de créatures hostiles et de technologies extraterrestres perfides. Danger!",
+                'category' => 'category_Aventure',
+            ],
+            [
                 'title' => "Vikings",
                 'synopsis' => "Lassé par les pillages, ce guerrier ambitieux vogue vers l'ouest à la recherche
                  de terres inconnues, de pouvoir et de gloire, et marque ainsi le début de l'ère viking.",
                 'category' => 'category_Aventure',
+            ],
+            [
+                'title' => "Preacher",
+                'synopsis' => "Des anges, des démons, des vampires, des cow-boys et une secte religieuse secrète
+                 se heurtent à un révérend du Texas doté de pouvoirs surnaturels qui cherche à trouver Dieu.",
+                'category' => 'category_Aventure',
+            ],
+            [
+                'title' => "The Witcher",
+                'synopsis' => "Véritable succès planétaire, ce récit épique sur fond de monstres, de magie et
+                 de destinée.",
+                'category' => 'category_Aventure',
+            ],
+            [
+                'title' => "The Witcher",
+                'synopsis' => "Véritable succès planétaire, ce récit épique sur fond de monstres, de magie et
+                 de destinée.",
+                'category' => 'category_Aventure',
+            ],
+            [
+                'title' => "Demon Slayer",
+                'synopsis' => "Tanjiro se lance dans un périlleux voyage pour venger sa famille massacrée par
+                 un démon et délivrer sa sœur d'un mauvais sort.",
+                'category' => 'category_Animation',
+            ],
+            [
+                'title' => "The Seven Deadly Sins",
+                'synopsis' => "Quand son royaume est renversé par des tyrans, une princesse écartée du trône cherche
+                 à se rapprocher d'une bande de chevaliers surpuissants pour récupérer son fief.",
+                'category' => 'category_Animation',
+            ],
+            [
+                'title' => "L'Attaque des Titans",
+                'synopsis' => "Témoin du massacre de sa ville natale, le jeune Eren Yeager décide de prendre sa
+                 revanche et de tuer les géants qui menacent d'exterminer l'humanité.",
+                'category' => 'category_Animation',
+            ],
+            [
+                'title' => "Jojo's",
+                'synopsis' => "Plusieurs générations de la famille Joestar, toutes affublées 
+                du même surnom, affrontent des méchants surnaturels à différentes époques.",
+                'category' => 'category_Animation',
+            ],
+            [
+                'title' => "Castelvania",
+                'synopsis' => "Cette série dark fantasy d'action créée par Warren Ellis s'inspire du jeu vidéo
+                 du même nom de Konami.",
+                'category' => 'category_Animation',
+            ],
+            [
+                'title' => "Dirk Gently",
+                'synopsis' => "Dirk, détective amateur et excentrique, et Todd, son réticent assistant, enquêtent
+                 à l'aveuglette sur de mystérieuses affaires surnaturelles, périlleuses et embrouillées.",
+                'category' => 'category_Fantastique',
+            ],
+            [
+                'title' => "Dark",
+                'synopsis' => "Mystères et machiavélisme sont au rendez-vous dans cette série de science-fiction
+                 hypnotique.",
+                'category' => 'category_Fantastique',
+            ],
+            [
+                'title' => "Black Mirror",
+                'synopsis' => "Libérez votre imagination et plongez dans cette série d'anthologie délirante.
+                 Dans Black Mirror, vous ne savez jamais ce qui vous attend... un peu comme dans la vraie vie.",
+                'category' => 'category_Fantastique',
+            ],
+            [
+                'title' => "Sweet Tooth",
+                'synopsis' => "Élevé dans une cabane isolée, le jeune Gus découvre les dangers inhérents à son
+                 identité hybride mi-garçon, mi-cerf, lors d'un périple à travers une Amérique post-apocalyptique.",
+                'category' => 'category_Fantastique',
+            ],
+            [
+                'title' => "Shadow and Bone",
+                'synopsis' => "Une jeune cartographe découvre qu'elle possède un rare pouvoir qui pourrait changer
+                 le sort du monde. Suivra-t-elle sa destinée ou succombera-t-elle aux ténèbres ?",
+                'category' => 'category_Fantastique',
+            ],
+            [
+                'title' => "Stranger Things",
+                'synopsis' => "Quand un jeune garçon disparaît, une petite ville découvre une affaire mystérieuse,
+                 des expériences secrètes, des forces surnaturelles terrifiantes... et une fillette.",
+                'category' => 'category_Horreur',
+            ],
+            [
+                'title' => 'Walking Dead',
+                'synopsis' => 'Un groupe de survivants doit rester soudé face à une apocalypse zombie.',
+                'category' => 'category_Horreur',
+            ],
+            [
+                'title' => 'Walking Dead',
+                'synopsis' => 'Un groupe de survivants doit rester soudé face à une apocalypse zombie.',
+                'category' => 'category_Horreur',
+            ],
+            [
+                'title' => 'Walking Dead',
+                'synopsis' => 'Un groupe de survivants doit rester soudé face à une apocalypse zombie.',
+                'category' => 'category_Horreur',
+            ],
+            [
+                'title' => 'Walking Dead',
+                'synopsis' => 'Un groupe de survivants doit rester soudé face à une apocalypse zombie.',
+                'category' => 'category_Horreur',
             ],
         ];
     public function load(ObjectManager $manager)
