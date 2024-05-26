@@ -6,7 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\CategoryRepository;
+use App\Repository\ProgramRepository;
 use App\Entity\Category;
+use App\Entity\Program;
 
 #[Route('/category', name: 'category_')]
 class CategoryController extends AbstractController
@@ -19,18 +21,25 @@ class CategoryController extends AbstractController
         return $this->render('category/index.html.twig', ['categories' => $categories]);
     }
 
-    #[Route('/show/{categoryName}', requirements: ['id'=>'\d+'], methods: ['GET'], name: 'show')]
-    public function show(string $categoryName, CategoryRepository $categoryRepository): Response
+    #[Route('/{categoryName}', name: 'show')]
+    public function show(string $categoryName, CategoryRepository $categoryRepository, ProgramRepository $programRepository): Response
     {
-        $category = $categoryRepository->findBy(['categoryName' => $categoryName, 'programId' => 'DESC'],3,0);
-
+        $category = $categoryRepository->findOneBy(['name' => $categoryName]);
 
         if (!$category) {
             throw $this->createNotFoundException(
-                'No program with categoryName : '.$categoryName.' found in program\'s table.'
+                'No category with name : '.$categoryName.' found in category\'s table.'
             );
         }
-        return $this->render('category/show.html.twig', ['category' => $category,]);
+
+        $programs = $programRepository->findBy(['category' => $category], ['id' => 'ASC'], 3);
+
+        if (!$programs) {
+            throw $this->createNotFoundException(
+                "Aucune série trouvée dans la catégorie".$categoryName
+            );
+        }
+        return $this->render('category/show.html.twig', ['programs' => $programs,'category' => $category,]);
     }
 
 }

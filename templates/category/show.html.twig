@@ -3,14 +3,19 @@
 {% block title %}Catégorie #{{ category.id }}{% endblock %}
 
 {% block body %}
-    {% for program in programs %}
     <article>
-        <h1>{{ program.category.name }}</h1>
-        <h2>{{ loop.index }} / {{ progam.title }}</h2>
+        <h1>{{ category.name }}</h1>
+    {% for program in programs %}
+        <h2>{{ program.title }}</h2>
         <p>{{ program.synopsis }}</p>
+        <a href="{{ path('program_show', {id: program.id}) }}">
+            Voir la fiche de la série
+        </a>
     </article>
     {% endfor %}
+    <div>
     <a href="{{ path('category_index') }}">
         Retour à la liste des catégories
     </a>
+    </div>
 {% endblock %}
