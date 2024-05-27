@@ -2,7 +2,7 @@
     <a class="navbar-brand" href="/">
         <img src="" alt="Logo" width="30" height="24">
     </a>
-    <a class="navbar-brand" id="title_nav" href="#">Wild Series</a>
+    <a class="navbar-brand" id="title_nav" href="{{ path('app_index') }}">Wild Series</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,6 +14,7 @@
                         Catégories
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ path('category_index') }}">Toutes les catégories</a></li>
                         <li><a class="dropdown-item" href="#">Action</a></li>
                         <li><a class="dropdown-item" href="#">Aventure</a></li>
                         <li><a class="dropdown-item" href="#">Animation</a></li>
@@ -26,6 +27,7 @@
                         Séries
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ path('program_index') }}">Toutes les séries</a></li>
                         <li><a class="dropdown-item" href="#">Program1</a></li>
                         <li><a class="dropdown-item" href="#">Program2</a></li>
                         <li><a class="dropdown-item" href="#">Program3</a></li>
