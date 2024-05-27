@@ -28,7 +28,7 @@ class CategoryController extends AbstractController
 
         if (!$category) {
             throw $this->createNotFoundException(
-                'No category with name : '.$categoryName.' found in category\'s table.'
+                'Aucune catégorie nommée'.$categoryName
             );
         }
 
