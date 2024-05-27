@@ -33,7 +33,7 @@ class CategoryController extends AbstractController
         }
 
         $programs = $programRepository->findBy(['category' => $category], ['id' => 'ASC'], 3);
-
+        // liste de 3 séries d'une catégorie
         if (!$programs) {
             throw $this->createNotFoundException(
                 "Aucune série trouvée dans la catégorie".$categoryName
