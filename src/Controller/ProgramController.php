@@ -15,7 +15,7 @@ class ProgramController extends AbstractController
     public function index(ProgramRepository $programRepository): Response
     {
         $programs = $programRepository->findAll();
-
+        // récupération de la liste des séries
         return $this->render('program/index.html.twig', ['programs' => $programs,]);
     }
 
@@ -23,7 +23,7 @@ class ProgramController extends AbstractController
     public function show(int $id, ProgramRepository $programRepository):Response
     {
         $program = $programRepository->findOneBy(['id' => $id]);
-        // same as $program = $programRepository->find($id);
+        // récupération d'une série par son id
 
         if (!$program) {
             throw $this->createNotFoundException(

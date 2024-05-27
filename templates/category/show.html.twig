@@ -3,15 +3,11 @@
 {% block title %}Catégorie #{{ category.id }}{% endblock %}
 
 {% block body %}
-    <article>
-        <h1>{{ category.name }}</h1>
+    <h1>{{ category.name }}</h1>
     {% for program in programs %}
-        <h2>{{ program.title }}</h2>
-        <p>{{ program.synopsis }}</p>
-        <a href="{{ path('program_show', {id: program.id}) }}">
-            Voir la fiche de la série
-        </a>
-    </article>
+        <ul>
+            <li><a href="{{ path('program_show', {id: program.id}) }}">{{ program.title }}</a></li>
+        </ul>
     {% endfor %}
     <div>
     <a href="{{ path('category_index') }}">

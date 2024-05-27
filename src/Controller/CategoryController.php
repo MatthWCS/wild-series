@@ -25,10 +25,10 @@ class CategoryController extends AbstractController
     public function show(string $categoryName, CategoryRepository $categoryRepository, ProgramRepository $programRepository): Response
     {
         $category = $categoryRepository->findOneBy(['name' => $categoryName]);
-
+        // récupération du nom de la catégorie
         if (!$category) {
             throw $this->createNotFoundException(
-                'Aucune catégorie nommée'.$categoryName
+                'Aucune catégorie nommée '.$categoryName
             );
         }
 
