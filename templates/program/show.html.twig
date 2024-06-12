@@ -6,21 +6,18 @@
     <article>
         <img src="{{ program.poster }}" alt="{{ program.title }}">
         <h1>{{ program.title }}</h1>
-        <p>{{ program.synopsis }}</p>
-        <p>Catégorie : {{ program.category.name }}</p>
-        <p>Liste des saisons:</p>
-        <ul>
-            {%  for season in program.seasons %}
-            <li><a href="{{ path('program_season_show', { programId: program.id, seasonId: season.id }) }}">{{ season.number }}</a></li>
-            {% endfor %}
-        </ul>
+            <p>{{ program.synopsis }}</p>
+            <p>Catégorie : {{ program.category.name }}</p>
+            <p>Liste des saisons:</p>
+            <ul>
+                {%  for season in program.seasons %}
+                <li><a href="{{ path('program_season_show', { program: program.id, season: season.id }) }}">Saison #{{ season.number }}</a></li>
+                {% endfor %}
+            </ul>
     </article>
-
-    <a href="{{ path('program_index') }}">
-        Retour à la liste des programmes
-    </a>
-    <a href="{{ path('category_index') }}">
-        Retour à la liste des catégories
-    </a>
-
+    <br>
+        <a href="{{ path('program_index') }}">Retour à la liste des séries</a>
+    <br>
+    <br>
+        <a href="{{ path('category_index') }}">Retour à la liste des catégories</a>
 {% endblock %}
