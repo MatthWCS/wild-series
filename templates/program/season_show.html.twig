@@ -8,15 +8,12 @@
     <h2>Listes des épisodes:</h2>
         <ul>
             {% for episode in seasons.episodes %}
-            <li><a href="">Episode #{{ episode.number }} : {{ episode.title }}</a></li>
+            <li><a href="{{ path('program_season_episode_show_', { program: program.id, season: seasons.id, episode: episode.id} ) }}">Episode # {{ episode.number }} : {{ episode.title }}</a></li>
             {% endfor %}
         </ul>
-
-    <a href="{{ path('category_index') }}">
-        Retourner aux catégories
-    </a>
-
-    <a href="{{ path('program_index') }}">
-        Retourner aux programmes
-    </a>
+        <br>
+            <a href="{{ path('category_index') }}">Retour à la liste des catégories</a>
+        <br>
+        <br>
+            <a href="{{ path('program_index') }}">Retour à la liste des séries</a>
 {% endblock %}
