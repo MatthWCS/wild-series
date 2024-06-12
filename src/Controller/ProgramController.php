@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Form\ProgramType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\ProgramRepository;
 use App\Repository\SeasonRepository;
@@ -20,6 +23,25 @@ class ProgramController extends AbstractController
         $programs = $programRepository->findAll();
         // récupération de la liste des séries
         return $this->render('program/index.html.twig', ['programs' => $programs,]);
+    }
+
+    #[Route('/new', name: 'new')]
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $program = new Program();
+        // Création du formulaire
+        $form = $this->createForm(ProgramType::class, $program);
+        // Récupère la data lors de la requête
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $entityManager->persist($program);
+            $entityManager->flush();
+            // Redirection vers la liste des séries une fois le formulaire soumis
+            return $this->redirectToRoute('program_index');
+        }
+        // Render du form
+        return $this->render('program/new.html.twig', ['form' => $form]);
     }
 
     #[Route('/{id<^[0-9]+$>}', name: 'show', requirements: ['id'=>'\d+'], methods: ['GET'])]
