@@ -72,3 +72,15 @@ symfony console doctrine:schema:update --force
 
 symfony console doctrine:fixtures:load -n
 
+#######################################################################################
+
+installation de faker
+
+composer require fakerphp/faker
+
+
+$faker->firstName()
+$faker->lastName()
+$faker->city()
+$faker->email()
+$faker->password()
