@@ -14,8 +14,8 @@ class EpisodeFixtures extends Fixture implements DependentFixtureInterface
     {
         $reference = 0;
         $faker = Factory::create();
-        for ($i = 1; $i < 50; $i++) {
-            for ($j =1; $j < 10; $j++) {
+        for ($i = 1; $i <= 50; $i++) {
+            for ($j =1; $j <= 10; $j++) {
             $episode = new Episode();
             $episode->setTitle($faker->words(5, true));
             $episode->setNumber($j);
