@@ -26,7 +26,7 @@ class Program
     private ?string $poster = null;
 
     #[ORM\ManyToOne(inversedBy: 'programs')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'SET DEFAULT')]
     private ?Category $category = null;
 
     /**
