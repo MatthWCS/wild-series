@@ -13,18 +13,21 @@ class SeasonFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create();
-
-        for ($i = 0; $i < 5; $i++) {
+        $reference = 0;
+        for ($i = 1; $i <= 10; $i++) {
+            for ($j = 1; $j <= 5; $j++) {
             $season = new Season();
-            $season->setNumber($faker->numberBetween(1,8));
-            $season->setYear($faker->year());
-            $season->setDescription($faker->paragraphs(4, true));
-            $season->setProgram($this->getReference('program_' . $faker->numberBetween(1,10)));
+            $season->setNumber($j);
+            $season->setYear(2020);
+            $season->setDescription($faker->paragraph(2));
+            $season->setProgram($this->getReference('program_' . $i));
 
             $manager->persist($season);
-            $this->addReference('season_' . $i, $season);
+            $this->addReference('season_' . $reference, $season);
+            $reference++;
             }
-            $manager->flush();
+        }
+        $manager->flush();
     }
 
     public function getDependencies()
