@@ -9,6 +9,7 @@
             <h2>{{ loop.index }} / {{ category.name }}</h2>
             {# Lien vers la fiche de la série : #}
             <a href="{{ path("category_show", { categoryName: category.name }) }}">Voir les séries de cette catégorie</a>
+            <a href="{{ path("category_delete", {id: category.id}) }}">Supprimer la catégorie</a>
         </div>
     {% else %}
         Aucune catégorie trouvée.

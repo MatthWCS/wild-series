@@ -37,9 +37,14 @@ class ProgramController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($program);
             $entityManager->flush();
+
+            // Quand le formulaire est soumis, validé et les données insérées dans la DB , définit le message flash suivant
+            $this->addFlash('success', 'The new series has been created.');
+
             // Redirection vers la liste des séries une fois le formulaire soumis
             return $this->redirectToRoute('program_index');
         }
+
         // Render du form
         return $this->render('program/new.html.twig', ['form' => $form]);
     }
@@ -70,5 +75,16 @@ class ProgramController extends AbstractController
     public function showEpisode(Program $program,Season $season, Episode $episode):Response
     {
         return $this->render('program/episode_show.html.twig', ['program' => $program, 'season' => $season, 'episode' => $episode,]);
+    }
+
+    #[Route('/{id}/delete', name: 'delete')]
+    public function delete(Request $request, Program $program, EntityManagerInterface $entityManager): Response
+    {
+        $entityManager->remove($program);
+        $entityManager->flush();
+
+        $this->addFlash('danger', 'The series has been deleted.');
+
+        return $this->redirectToRoute('program_index', [], Response::HTTP_SEE_OTHER);
     }
 }

@@ -14,6 +14,7 @@
                 <li><a href="{{ path('program_season_show', { program: program.id, season: season.id }) }}">Saison #{{ season.number }}</a></li>
                 {% endfor %}
             </ul>
+        <a href="{{ path('program_delete', {id: program.id}) }}">Supprimer la série</a>
     </article>
     <br>
         <a href="{{ path('program_index') }}">Retour à la liste des séries</a>
