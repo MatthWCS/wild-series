@@ -33,8 +33,12 @@ class EpisodeController extends AbstractController
             $entityManager->persist($episode);
             $entityManager->flush();
 
+            // Quand le formulaire est soumis, validé et les données insérées dans la DB , définit le message flash suivant
+            $this->addFlash('success', 'The new episode has been created.');
+
             return $this->redirectToRoute('app_episode_index', [], Response::HTTP_SEE_OTHER);
         }
+        $this->addFlash('danger', 'The episode could not be created.');
 
         return $this->render('episode/new.html.twig', [
             'episode' => $episode,
