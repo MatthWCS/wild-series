@@ -15,12 +15,17 @@ class Episode
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'The field cannot be empty.')]
+    #[Assert\Length(max: 255, maxMessage: 'The category entered {{ value }} is too long, it should not exceed {{ limit }} characters.')]
     private ?string $title = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'The field cannot be empty.')]
+    #[Assert\Positive]
     private ?int $number = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'The field cannot be empty.')]
     private ?string $synopsis = null;
 
     #[ORM\ManyToOne(inversedBy: 'episodes')]
