@@ -34,7 +34,7 @@ class ProgramController extends AbstractController
         // Récupère la data lors de la requête
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($program);
             $entityManager->flush();
             // Redirection vers la liste des séries une fois le formulaire soumis

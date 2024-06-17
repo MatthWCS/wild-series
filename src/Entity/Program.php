@@ -7,8 +7,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProgramRepository::class)]
+#[UniqueEntity('title', message: 'The program title is already in use.')]
 class Program
 {
     #[ORM\Id]
@@ -16,10 +19,16 @@ class Program
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
+    #[Assert\NotBlank(message: 'The field cannot be empty.')]
+    #[Assert\Length(max: 255, maxMessage: 'The program title entered is too long, it cannot exceed {{ limit }} characters.')]
+    #[Assert\Regex(
+        match: false, pattern: '/\plus belle la vie/', message: 'On parle de vraies séries ici'
+    )]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'In lacking inspiration.')]
     private ?string $synopsis = null;
 
     #[ORM\Column(length: 255, nullable: true)]

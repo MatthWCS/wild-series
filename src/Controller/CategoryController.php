@@ -33,7 +33,7 @@ class CategoryController extends AbstractController
         // Récupère la data lors de la requête
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($category);
             $entityManager->flush();
             // Redirection vers la liste des catégories une fois le formulaire soumis
