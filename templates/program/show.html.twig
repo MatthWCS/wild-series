@@ -14,6 +14,14 @@
                 <li><a href="{{ path('program_season_show', { program: program.id, season: season.id }) }}">Saison #{{ season.number }}</a></li>
                 {% endfor %}
             </ul>
+        <strong>Acteurs :</strong>
+        <ul>
+            {% for actor in program.actors %}
+                <li><a href="{{ path('app_actor_show', {id: actor.id}) }}">{{ actor.name }}</a></li>
+            {% else %}
+                <li>Aucun acteur pour cette série</li>
+            {% endfor %}
+        </ul>
         <a href="{{ path('program_delete', {id: program.id}) }}">Supprimer la série</a>
     </article>
     <br>

@@ -10,7 +10,7 @@ use Faker\Factory;
 
 class ProgramFixtures extends Fixture implements DependentFixtureInterface
 {
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         $faker = Factory::create();
         for ($i = 1; $i <= 10; $i++) {
@@ -25,7 +25,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $manager->flush();
     }
 
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return [
             CategoryFixtures::class,
