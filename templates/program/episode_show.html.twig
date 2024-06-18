@@ -7,7 +7,7 @@
     <h2>Synopsis</h2>
     <p>{{ episode.synopsis }}</p>
 <ul>
-    <li><a href="{{ path('program_season_show', {program: program.id, season: season.id}) }}">
+    <li><a href="{{ path('program_season_show', {slug: program.slug, season: season.id}) }}">
         Retour à la liste des saisons
     </a></li>
 

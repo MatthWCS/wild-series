@@ -11,7 +11,7 @@
             <p>Liste des saisons:</p>
             <ul>
                 {%  for season in program.seasons %}
-                <li><a href="{{ path('program_season_show', { program: program.id, season: season.id }) }}">Saison #{{ season.number }}</a></li>
+                <li><a href="{{ path('program_season_show', { slug: program.slug, season: season.id }) }}">Saison #{{ season.number }}</a></li>
                 {% endfor %}
             </ul>
         <strong>Acteurs :</strong>
@@ -22,7 +22,7 @@
                 <li>Aucun acteur pour cette série</li>
             {% endfor %}
         </ul>
-        <a href="{{ path('program_delete', {id: program.id}) }}">Supprimer la série</a>
+        <a href="{{ path('program_delete', {slug: program.slug}) }}">Supprimer la série</a>
     </article>
     <br>
         <a href="{{ path('program_index') }}">Retour à la liste des séries</a>

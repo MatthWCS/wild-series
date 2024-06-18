@@ -54,7 +54,7 @@ class ProgramController extends AbstractController
         return $this->render('program/new.html.twig', ['form' => $form]);
     }
 
-    #[Route('/{id<^[0-9]+$>}', name: 'show', requirements: ['id'=>'\d+'], methods: ['GET'])]
+    #[Route('/{slug}', name: 'show', requirements: ['id'=>'\d+'], methods: ['GET'])]
     public function show(Program $program):Response
     {
         //$program = $programRepository->findOneBy(['id' => $id]);
@@ -68,7 +68,7 @@ class ProgramController extends AbstractController
         return $this->render('program/show.html.twig', ['program' => $program,]);
     }
 
-    #[Route('/{program}/season/{season}', name: 'season_show', requirements: ['programId'=>'\d+'], methods: ['GET'])]
+    #[Route('/{slug}/season/{season}', name: 'season_show', requirements: ['programId'=>'\d+'], methods: ['GET'])]
     public function showSeason( Program $program, Season $season,):Response
     {
         // $seasons = $seasonRepository->findOneBy(['id' => $seasonId]);
@@ -76,13 +76,13 @@ class ProgramController extends AbstractController
         return $this->render('program/season_show.html.twig', ['seasons' => $season,'program' => $program]);
     }
 
-    #[Route('/{program}/season/{season}/episode/{episode}', name: 'season_episode_show_', requirements: ['programId'=>'\d+'], methods: ['GET'])]
+    #[Route('/{slug}/season/{season}/episode/{episode}', name: 'season_episode_show_', requirements: ['programId'=>'\d+'], methods: ['GET'])]
     public function showEpisode(Program $program,Season $season, Episode $episode):Response
     {
         return $this->render('program/episode_show.html.twig', ['program' => $program, 'season' => $season, 'episode' => $episode,]);
     }
 
-    #[Route('/{id}/delete', name: 'delete')]
+    #[Route('/{slug}/delete', name: 'delete')]
     public function delete(Request $request, Program $program, EntityManagerInterface $entityManager): Response
     {
         $entityManager->remove($program);

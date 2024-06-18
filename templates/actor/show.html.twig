@@ -18,7 +18,7 @@
         </tbody>
     </table>
     {% for program in actor.programs %}
-        <li><a href="{{ path('program_show', {id: program.id}) }}">{{ program.title }}</a></li>
+        <li><a href="{{ path('program_show', {slug: program.slug}) }}">{{ program.title }}</a></li>
     {% else %}
         <li>Aucune série pour cet acteur</li>
     {% endfor %}

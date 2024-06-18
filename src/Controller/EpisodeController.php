@@ -51,7 +51,7 @@ class EpisodeController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_episode_show', methods: ['GET'])]
+    #[Route('/{slug}', name: 'app_episode_show', methods: ['GET'])]
     public function show(Episode $episode): Response
     {
         return $this->render('episode/show.html.twig', [
@@ -59,7 +59,7 @@ class EpisodeController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_episode_edit', methods: ['GET', 'POST'])]
+    #[Route('/{slug}/edit', name: 'app_episode_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Episode $episode, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(EpisodeType::class, $episode);
@@ -79,7 +79,7 @@ class EpisodeController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_episode_delete', methods: ['GET','POST'])]
+    #[Route('/{slug}', name: 'app_episode_delete', methods: ['GET','POST'])]
     public function delete(Request $request, Episode $episode, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$episode->getId(), $request->getPayload()->getString('_token'))) {
