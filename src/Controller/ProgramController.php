@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\ProgramRepository;
 use App\Repository\SeasonRepository;
@@ -16,6 +17,7 @@ use App\Entity\Season;
 use App\Entity\Episode;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
+use Symfony\Component\Mime\Email;
 
 #[Route('/program', name: 'program_')]
 class ProgramController extends AbstractController
@@ -29,7 +31,7 @@ class ProgramController extends AbstractController
     }
 
     #[Route('/new', name: 'new')]
-    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, MailerInterface $mailer): Response
     {
         $program = new Program();
         // Création du formulaire
@@ -44,6 +46,14 @@ class ProgramController extends AbstractController
 
             $entityManager->persist($program);
             $entityManager->flush();
+
+            $email = (new Email())
+                ->from($this->getParameter('mailer_from'))
+                ->to('jpp@onvayarriver.com')
+                ->subject('A new series has been published')
+                ->html('<p>A new series has been published on Wild Series!!</p>');
+
+            $mailer->send($email);
 
             // Quand le formulaire est soumis, validé et les données insérées dans la DB , définit le message flash suivant
             $this->addFlash('success', 'The new series has been created.');
