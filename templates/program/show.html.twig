@@ -1,32 +1,50 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}<link rel="stylesheet" href="./assets/styles/program.css">{% endblock %}
+
 {% block title %}Série #{{ program.id }}{% endblock %}
 
 {% block body %}
-    <article>
-        <img src="{{ program.poster }}" alt="{{ program.title }}">
-        <h1>{{ program.title }}</h1>
-            <p>{{ program.synopsis }}</p>
-            <p>Catégorie : {{ program.category.name }}</p>
-            <p>Liste des saisons:</p>
-            <ul>
-                {%  for season in program.seasons %}
-                <li><a href="{{ path('program_season_show', { slug: program.slug, season: season.id }) }}">Saison #{{ season.number }}</a></li>
-                {% endfor %}
-            </ul>
-        <strong>Acteurs :</strong>
-        <ul>
-            {% for actor in program.actors %}
-                <li><a href="{{ path('app_actor_show', {id: actor.id}) }}">{{ actor.name }}</a></li>
-            {% else %}
-                <li>Aucun acteur pour cette série</li>
-            {% endfor %}
-        </ul>
-        <a href="{{ path('program_delete', {slug: program.slug}) }}">Supprimer la série</a>
-    </article>
-    <br>
-        <a href="{{ path('program_index') }}">Retour à la liste des séries</a>
-    <br>
-    <br>
-        <a href="{{ path('category_index') }}">Retour à la liste des catégories</a>
+    <h1>{{ program.title }}</h1>
+        <article class="row">
+            <section class="col-md-8">
+                <div class="card mb-3" style="max-width: 990px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ program.poster }}" class="img-fluid rounded-start" alt="{{ program.title }}">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Synopsis</h5>
+                                <p class="card-text">{{ program.synopsis }}</p>
+                                <p>Catégorie : {{ program.category.name }}</p>
+                                <p>Durée de la série : {% if programDuration.days > 0 %}{{ programDuration.days }} jour(s) {% endif%} {{ programDuration.hours }} heure(s) {{ programDuration.minutes }} minute(s).</p>
+                                <h3>Liste des saisons:</h3>
+                                <ul>
+                                    {%  for season in program.seasons %}
+                                        <li><a href="{{ path('program_season_show', { slug: program.slug, season: season.id }) }}">Saison #{{ season.number }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                                <h5><strong>Acteurs principaux:</strong></h5>
+                                <ul>
+                                    {% for actor in program.actors %}
+                                        <li><a href="{{ path('app_actor_show', {id: actor.id}) }}">{{ actor.name }} ,</a></li>
+                                    {% else %}
+                                        <p>Aucun acteur pour cette série</p>
+                                    {% endfor %}
+                                </ul>
+                                <p class="card-text"><small class="text-body-secondary">Last updated "time" ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="col-md-2">
+                <ul>
+                    <li><a class="lien" href="{{ path('program_index') }}">Retour à la liste des séries</a></li>
+                    <li><a class="lien" href="{{ path('category_index') }}">Retour à la liste des catégories</a></li>
+                    <li><a class="lien" href="{{ path('program_delete', {slug: program.slug}) }}">Supprimer la série</a></li>
+                </ul>
+            </section>
+        </article>
 {% endblock %}

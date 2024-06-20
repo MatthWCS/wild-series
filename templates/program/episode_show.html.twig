@@ -4,8 +4,11 @@
 
 {% block body %}
 <h1>Episode # {{ episode.number }} | Saison # {{ season.number }} de la série {{ program.title }}</h1>
-    <h2>Synopsis</h2>
+    <h2>Synopsis :</h2>
     <p>{{ episode.synopsis }}</p>
+    <br>
+    <h2>Duration :</h2>
+    <p>{{ episode.duration }} minutes</p>
 <ul>
     <li><a href="{{ path('program_season_show', {slug: program.slug, season: season.id}) }}">
         Retour à la liste des saisons

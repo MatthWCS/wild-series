@@ -22,6 +22,7 @@
                 <td>{{ episode.title }}</td>
                 <td>{{ episode.number }}</td>
                 <td>{{ episode.synopsis }}</td>
+                <td>{{ episode.duration }} minutes</td>
                 <td>
                     <a href="{{ path('app_episode_show', {'slug': episode.slug}) }}">show</a>
                     <a href="{{ path('app_episode_edit', {'slug': episode.slug}) }}">edit</a>
