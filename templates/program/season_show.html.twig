@@ -8,7 +8,7 @@
     <h2>Listes des épisodes:</h2>
         <ul>
             {% for episode in seasons.episodes %}
-            <li><a href="{{ path('program_season_episode_show_', { program: program.id, season: seasons.id, episode: episode.id} ) }}">Episode # {{ episode.number }} : {{ episode.title }}</a></li>
+            <li><a href="{{ path('program_season_episode_show_', { program_slug: program.slug, season: seasons.id, episode_slug: episode.slug} ) }}">Episode # {{ episode.number }} : {{ episode.title }}</a></li>
             {% endfor %}
         </ul>
         <br>
